@@ -1,0 +1,43 @@
+# Environment and secrets
+.env
+.env.*
+!.env.example
+
+# Python
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Data: retain directory placeholders, never commit datasets
+data/raw/*
+!data/raw/.gitkeep
+data/interim/*
+!data/interim/.gitkeep
+data/processed/*
+!data/processed/.gitkeep
+
+# Model artifacts
+models/*
+!models/.gitkeep
+*.joblib
+*.pickle
+*.pkl
+
+# Frontend dependencies and build output
+web/node_modules/
+web/dist/
+web/build/
+web/.vite/
+
+# Notebooks and editor files
+.ipynb_checkpoints/
+.vscode/
+.idea/

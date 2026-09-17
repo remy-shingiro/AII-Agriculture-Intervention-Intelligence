@@ -1,0 +1,49 @@
+[project]
+name = "agricultural-intervention-intelligence"
+version = "0.1.0"
+description = "Foundation for agricultural productivity gap and intervention intelligence using NISR Rwanda data."
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "numpy>=2.0,<3.0",
+    "pandas>=2.2,<3.0",
+    "pyarrow>=17.0,<22.0",
+    "pydantic>=2.0,<3.0",
+    "pydantic-settings>=2.0,<3.0",
+]
+
+[dependency-groups]
+dev = [
+    "mypy>=1.11,<2.0",
+    "pre-commit>=3.8,<5.0",
+    "pytest>=8.0,<9.0",
+    "ruff>=0.6,<1.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/agri_intelligence"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
+
+[tool.ruff]
+target-version = "py312"
+line-length = 88
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+
+[tool.ruff.format]
+quote-style = "double"
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+mypy_path = "src"
+packages = ["agri_intelligence"]
